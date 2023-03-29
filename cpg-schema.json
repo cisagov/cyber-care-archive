@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "Function": {
+      "type": "string"
+    },
+    "ID": {
+      "type": "string"
+    },
+    "SecurityPractice": {
+      "type": "string"
+    },
+    "Outcome": {
+      "type": "string"
+    },
+    "TTPorRiskAddressed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "RecommendedAction": {
+      "type": "string"
+    },
+    "NISTCSFReference": {
+      "type": "string"
+    },
+    "AdditionalExternalReferences": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Cost": {
+      "type": "string"
+    },
+    "Impact": {
+      "type": "string"
+    },
+    "Complexity": {
+      "type": "string"
+    },
+    "SupportResources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "Function",
+    "ID",
+    "SecurityPractice",
+    "Outcome",
+    "TTPorRiskAddressed",
+    "Scope",
+    "RecommendedAction",
+    "NISTCSFReference",
+    "AdditionalExternalReferences",
+    "Cost",
+    "Impact",
+    "Complexity",
+    "SupportResources"
+  ]
+}
