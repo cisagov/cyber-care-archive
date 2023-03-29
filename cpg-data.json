@@ -1,0 +1,31 @@
+[
+  {
+    "Function": "Identify (ID)",
+    "ID": "1.A",
+    "SecurityPractice": "Asset Inventory",
+    "Outcome": "Better identify known, unknown (shadow), and unmanaged assets, and more rapidly detect and respond to new vulnerabilities.",
+    "TTPorRiskAddressed": [
+      "Hardware Additions (T1200)",
+      "Exploit Public-Facing Application (T0819, ICS T0819)",
+      "Internet Accessible Device (ICS T0883)"
+    ],
+    "Scope": [
+      "IT and OT assets"
+    ],
+    "RecommendedAction": "Maintain a regularly updated inventory of all organizational assets with an IP address (including IPv6), including OT. This inventory is updated on a recurring basis, no less than monthly for both IT and OT.",
+    "NISTCSFReference": "ID.AM-1\n\nBaseline practice 1.A supports an inventory of devices and systems.",
+    "AdditionalExternalReferences": [
+      "NIST SP 800-53: CM-8",
+      "ISA 62443-2-1:2009 4.2.3.4",
+      "ISA 62443-3-3:2013 SR 7.8",
+      "ISO/IEC 27001:2013 A.8.1.1, A.8.1.2"
+    ],
+    "Cost": "$$",
+    "Impact": "High",
+    "Complexity": "Medium",
+    "SupportResources": [
+      "CISA Cyber Hygiene Services (https://www.cisa.gov/cyber-hygiene-services and/or contact vulnerability@cisa.dhs.gov)",
+      "CISA “Stuff off Search” (https://www.cisa.gov/publication/stuff-off-search)"
+    ]
+  }
+]
