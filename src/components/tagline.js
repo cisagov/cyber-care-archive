@@ -242,11 +242,16 @@ for (const i in uiSchema) {
       status: {
         "ui:title": " ",
         "ui:placeholder": "Select a status",
-        "ui:widget": "radio"
+        "ui:widget": "radio",
+        "classNames": "field-status",
+        'ui:options': {
+          inline: true,
+        },
       },
       notes: {
         "ui:title": " ",
-        "ui:placeholder": "Notes"
+        "ui:placeholder": "Notes",
+        "classNames": "field-notes"
       }
     };
   }

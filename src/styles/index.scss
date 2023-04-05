@@ -103,10 +103,25 @@ $five: rgb(94, 128, 68);
         label {
           margin-top: 0;
         }
+        .field-radio-group {
+          display: flex;
+          padding-top: 10px;
+          .radio-inline {
+            flex: 1;
+            padding-right: 10px; 
+          }
+        }
+        .field-notes input {
+          margin-top: 0;
+        }
         .field-object fieldset {
           display: flex;
-          > div.field {
+          > div.field-status {
+            flex: 3;
+          }
+          > div.field-notes {
             flex: 1;
+            min-width: 100px;
           }
         }
       }
