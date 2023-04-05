@@ -8,7 +8,10 @@ const Header = ({ children, siteTitle }) => (
       <div className="usa-logo" id="extended-logo">
         <em className="usa-logo__text">
           <Link to="/" title="Home" aria-label="Home">
-            <img height="80" src="https://www.cisa.gov/profiles/cisad8_gov/themes/custom/gesso/dist/images/backgrounds/0e5a6ae3d070323898b1.svg"/>
+            <img
+              height="80"
+              src="https://www.cisa.gov/profiles/cisad8_gov/themes/custom/gesso/dist/images/backgrounds/0e5a6ae3d070323898b1.svg"
+            />
             <div class="usa-navbar__tagline" />
             {/* {siteTitle} */}
           </Link>

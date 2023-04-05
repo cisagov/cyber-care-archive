@@ -25,7 +25,6 @@ const Layout = ({ children }) => {
             items {
               text
               link
-              rootLink
             }
           }
           secondaryLinks {
@@ -49,7 +48,7 @@ const Layout = ({ children }) => {
       <Header siteTitle={title}>
         <Nav {...{ navigation, secondaryLinks }} />
       </Header>
-      {children}
+        {children}
       <Footer />
     </>
   );

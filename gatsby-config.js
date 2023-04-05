@@ -1,69 +1,69 @@
 module.exports = {
   siteMetadata: {
-    author: 'CISA',
-    title: `CyberCare`,
-    description: `Crossfeed is a tool that continuously enumerates and monitors an organization's public-facing attack surface in order to discover assets and flag potential security flaws.`,
+    // Replace the Site URL with your domain, ex. https://example.gov 
+    siteUrl: 'https://example.gov',
+    author: 'Foo',
+    title: `Agency Name`,
+    description: `Agency Name (EAC) Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Aenean et sapien a leo auctor scelerisque quis nec magna. Sed dictum ante a risus vehicula facilisis.`,
     navigation: [
       {
-        title: '',
-        items: [{ text: 'Home', link: '/', rootLink: '' }],
+        items: [{ text: 'Home', link: '/' }],
       },
-      // {
-      //   items: [
-      //     {
-      //       text: 'User Guide',
-      //       link: '/user-guide/quickstart/',
-      //       // If rootLink is specified, this navigation item will be
-      //       // highlighted as current when the user navigates to sub-pages whose
-      //       // paths start with the given rootLink.
-      //       rootLink: '/user-guide/',
-      //     },
-      //   ],
-      // },
-      // {
-      //   items: [
-      //     { text: 'Development', link: '/dev/quickstart/', rootLink: '/dev/' },
-      //   ],
-      // },
-      // {
-      //   items: [{ text: 'Scanning FAQ', link: '/scans/' }],
-      // },
-      // {
-      //   title: '',
-      //   items: [{ text: 'API Reference', link: '/api-reference/' }],
-      // },
+      {
+        items: [{ text: 'Blog', link: '/blog' }],
+      },
+      {
+        items: [{ text: 'Document', link: '/document' }],
+      },
+      {
+        items: [
+          { text: 'Document with sidenav', link: '/document-with-sidenav' },
+        ],
+      },
+      {
+        title: 'Document submenu',
+        items: [
+          { text: 'Navigation link', link: '/' },
+          { text: 'Navigation link', link: '/' },
+          { text: 'Navigation link', link: '/' },
+        ],
+      },
     ],
     secondaryLinks: [
-      {
-        text: 'Find Crossfeed on GitHub',
-        link: 'https://github.com/cisagov/crossfeed',
-      },
+      { text: 'Secondary link', link: '/' },
+      { text: 'Another secondary link', link: '/' },
     ],
 
     /**
      * Search.gov configuration
-     *
+     * 
      * 1. Create an account with Search.gov https://search.usa.gov/signup
      * 2. Add a new site.
      * 3. Add your site/affiliate name here.
      */
     searchgov: {
-      // You should not change this.
+      
+      // Only change this if you're using a CNAME. Learn more here: https://search.gov/manual/cname.html
       endpoint: 'https://search.usa.gov',
-
-      // replace this with your search.gov account
+      
+      // Replace this with your search.gov site handle.
       affiliate: 'federalist-uswds-example',
+      
+      // Replace this with your access key.
+      access_key: 'xX1gtb2RcnLbIYkHAcB6IaTRr4ZfN-p16ofcyUebeko=',
+      
+      // This renders the results within the page instead of sending to user to search.gov.
+      inline: true, 
 
-      // replace with your access key
-      access_key: '...',
-
-      // this renders the results within the page instead of sending to user to search.gov
-      inline: true,
+      // This allows Search.gov to present relevant type-ahead search suggestions in your website's search box. 
+      // If you do not want to present search suggestions, set this value to false.
+      suggestions: true,
     },
 
     /**
      * Digital Analytics Program (DAP) configuration
-     *
+     * 
      * USAID   - Agency for International Development
      * USDA    - Department of Agriculture
      * DOC     - Department of Commerce
@@ -94,6 +94,7 @@ module.exports = {
      */
     dap: {
       // agency: 'your-agency',
+
       // Optional
       // subagency: 'your-subagency',
     },
@@ -107,8 +108,17 @@ module.exports = {
   },
   pathPrefix: process.env.BASEURL || '/',
   plugins: [
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        cssLoaderOptions: {
+          esModule: false,
+          modules: {
+            namedExport: false,
+          },
+        },
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -120,46 +130,46 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `blog-posts`,
+        path: `${__dirname}/src/blog-posts`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `documentation-pages`,
         path: `${__dirname}/src/documentation-pages`,
       },
     },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          `gatsby-remark-autolink-headers`,
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              prompt: {
-                user: 'root',
-                host: 'localhost',
-              },
-            },
-          },
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 590,
-            },
-          },
-        ],
-      },
-    },
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Cybercare`,
-        short_name: `Cybercare`,
+        name: `gatsby-starter-default`,
+        short_name: `starter`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/logo.png`, // This path is relative to the root of the site.
+        icon: `src/images/federalist-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-meta-redirect`,
+    `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        resolveEnv: () => process.env.GATSBY_ENV,
+        env: {
+          development: {
+            policy: [{ userAgent: '*', disallow: ['/'] }]
+          },
+          production: {
+            policy: [{ userAgent: '*', allow: '/' }]
+          }
+        }
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

@@ -5,7 +5,7 @@
  */
 
 const path = require('path');
-const { createFilePath } = require('gatsby-source-filesystem');
+const { paginate } = require('gatsby-awesome-pagination');
 
 // Adds the source "name" from the filesystem plugin to the markdown remark nodes
 // so we can filter by it.
@@ -24,36 +24,46 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     name: 'sourceName',
     value: fileNode.sourceInstanceName,
   });
-
+  
   createNodeField({
     node,
     name: 'name',
     value: fileNode.name,
   });
-
-  const slug = createFilePath({
-    node,
-    getNode,
-    basePath: `src/documentation-pages`,
-  });
-  createNodeField({
-    node,
-    name: 'slug',
-    value: slug,
-  });
 };
 
 exports.createPages = async ({ actions, graphql }) => {
-  const { createPage, createRedirect } = actions;
+  const { createPage } = actions;
 
-  createRedirect({
-    fromPath: '/usage',
-    toPath: '/user-guide/quickstart',
-    isPermanent: false,
-  });
-
+  await createBlogPages(createPage, graphql);
   await createMarkdownPages(createPage, graphql);
 };
+
+async function createBlogPages(createPage, graphql) {
+  const blogTemplate = path.resolve('./src/templates/blog.js');
+  const postTemplate = path.resolve('./src/templates/blog-post.js');
+  const posts = await markdownQuery(graphql, 'blog-posts');
+
+  // Create pagination index page
+  paginate({
+    createPage,
+    items: posts,
+    itemsPerPage: 3,
+    pathPrefix: '/blog',
+    component: blogTemplate,
+  });
+
+  // Create individual pages
+  posts.forEach(({ node }) => {
+    createPage({
+      path: 'blog/' + node.fields.name,
+      component: postTemplate,
+      context: {
+        name: node.fields.name
+      },
+    });
+  });
+}
 
 async function createMarkdownPages(createPage, graphql) {
   const pageTemplate = path.resolve('./src/templates/documentation-page.js');
@@ -61,10 +71,10 @@ async function createMarkdownPages(createPage, graphql) {
 
   pages.forEach(({ node }) => {
     createPage({
-      path: node.fields.slug,
+      path: node.fields.name,
       component: pageTemplate,
       context: {
-        name: node.fields.slug,
+        name: node.fields.name
       },
     });
   });
@@ -78,7 +88,6 @@ async function markdownQuery(graphql, source) {
           node {
             fields {
               name
-              slug
             }
           }
         }
@@ -92,19 +101,3 @@ async function markdownQuery(graphql, source) {
 
   return result.data.allMarkdownRemark.edges;
 }
-
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    module: {
-      rules: [
-        {
-          test: /\.html$/,
-          loader: 'html-loader',
-          options: {
-            minimize: false,
-          },
-        },
-      ],
-    },
-  });
-};
