@@ -318,7 +318,7 @@ const Tagline = () => {
       </h2>
       <p>
         To sign up your organization for CyberCare, fill out basic information
-        and complete the CPG self-assessment below to receive your starter
+        and complete the maturity assessment below to receive your starter
         bundle.
       </p>
       <center>
