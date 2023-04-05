@@ -103,9 +103,6 @@ const Tagline = () => (
         name="input-type-text"
       />
     </p>
-    <h2 className="font-heading-xl margin-top-0 tablet:margin-bottom-0">
-      CPG Assessment
-    </h2>
   </section>
 );
 
