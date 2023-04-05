@@ -35,6 +35,10 @@ let schema = {
         "a": {
           title: "Do you maintain a regularly updated inventory of all organizational assets with an IP address, and update this on a recurring basis?",
           "$ref": "#/definitions/cpg",
+          "custom:recommendations": [
+            "Crossfeed",
+            "CyHy"
+          ]
         },
         "b": {
           title: "Is a named role/position/title is identified as responsible and accountable for planning, resourcing, and execution of cybersecurity activities?",
@@ -271,10 +275,10 @@ const Tagline = () => {
         type: "object",
         properties: {
           name: { type: "string", title: "Organization name" },
-          size: { type: "string", title: "Organization size", enum: ["-10", "0-100", "00-1000", "000+"] },
+          size: { type: "string", title: "Organization size", enum: ["1-10", "0-100", "100-1000", "1000+"] },
           contactName: { type: "string", title: "Contact name" },
           email: { type: "string", title: "Email", format: "email" },
-          itStaff: { type: "number", title: "How many people are part of your full-time IT staff? Do you have one?" },
+          itStaff: { type: "string", title: "How many people are part of your full-time IT staff? Do you have one?", enum: ["1-10", "0-100", "100-1000", "1000+"] },
           servicesInUse: {
             type: "string",
             title: "What cybersecurity services do you currently use?",
