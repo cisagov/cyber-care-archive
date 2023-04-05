@@ -92,6 +92,9 @@ $five: rgb(94, 128, 68);
     @for $i from 1 through 5 {
       $color: list.nth([$one, $two, $three, $four, $five], $i);
       .cpg.cpg-#{$i} {
+        > fieldset > legend {
+
+        }
         legend {
           background: $color;
           display: block;
@@ -100,7 +103,7 @@ $five: rgb(94, 128, 68);
           font-size: 1rem;
           padding: 8px;
           font-weight: bold;
-          margin-bottom: 5px;
+          // margin-bottom: 5px;
           // @extend .usa-accordion;
         }
         label {
@@ -124,12 +127,16 @@ $five: rgb(94, 128, 68);
         }
         .field-notes input {
           margin-top: 0;
+          border-top: none;
+          border-left: none;
         }
         .field-object fieldset {
           display: flex;
-          margin-top: 20px;
+          margin-bottom: 20px;
           > div.field-status {
             flex: 3;
+            border-bottom: 1px solid black;
+            border-left: 1px solid black;
           }
           > div.field-notes {
             flex: 1;
@@ -139,4 +146,8 @@ $five: rgb(94, 128, 68);
       }
     }
   }
+}
+
+.usa-step-indicator__header {
+  display: none;
 }

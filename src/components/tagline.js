@@ -315,6 +315,7 @@ const Tagline = () => {
         and complete the CPG self-assessment below to receive your starter
         bundle.
       </p>
+      <center>
       <StepIndicator counters="default" headingLevel="h4">
         {stages.map((label, i) => (
           <StepIndicatorStep
@@ -323,6 +324,7 @@ const Tagline = () => {
           />
         ))}
       </StepIndicator>
+      </center>
       <PageComponent />
       <button onClick={() => previousPage()} disabled={page - 1 < 0}>Previous</button>
       <button onClick={() => nextPage()} disabled={page + 1 >= NUM_PAGES}>Next</button>
