@@ -290,7 +290,7 @@ const Tagline = () => {
   let PageComponent = () => null;
   if (page === 0) {
     PageComponent = () => (
-      <>
+      <center>
         <Form
           schema={{
             type: 'object',
@@ -331,21 +331,21 @@ const Tagline = () => {
         >
           &nbsp;
         </Form>
-      </>
+      </center>
     );
   }
   if (page === 1) {
     PageComponent = () => (
-      <>
+      <center>
         <Form schema={schema} className="cpg-form" uiSchema={uiSchema}>
           &nbsp;
         </Form>
-      </>
+      </center>
     );
   }
   if (page === 2) {
     PageComponent = () => (
-      <ProcessList>
+      <ProcessList style={{ 'margin-left': '200px' }}>
         <ProcessListItem>
           <ProcessListHeading type="h4">
             Start with Attack Surface Management
@@ -386,24 +386,24 @@ const Tagline = () => {
 
   return (
     <section className="grid-container usa-section usa-prose" id="survey-start">
+      <StepIndicator counters="default" headingLevel="h4">
+        {stages.map((label, i) =>
+          i < page ? (
+            <StepIndicatorStep
+              label={label}
+              onClick={() => setPage(i)}
+              style={{ cursor: 'pointer' }}
+              status={i == page ? 'current' : i < page ? 'complete' : ''}
+            />
+          ) : (
+            <StepIndicatorStep
+              label={label}
+              status={i == page ? 'current' : i < page ? 'complete' : ''}
+            />
+          )
+        )}
+      </StepIndicator>
       <center>
-        <StepIndicator counters="default" headingLevel="h4">
-          {stages.map((label, i) =>
-            i < page ? (
-              <StepIndicatorStep
-                label={label}
-                onClick={() => setPage(i)}
-                style={{ cursor: 'pointer' }}
-                status={i == page ? 'current' : i < page ? 'complete' : ''}
-              />
-            ) : (
-              <StepIndicatorStep
-                label={label}
-                status={i == page ? 'current' : i < page ? 'complete' : ''}
-              />
-            )
-          )}
-        </StepIndicator>
         {page < 2 ? (
           <>
             <h2 className="font-heading-xl margin-top-0 tablet:margin-bottom-0">
@@ -426,9 +426,14 @@ const Tagline = () => {
               information, and you can log into CyberCare in the future to learn
               about new services.
             </p>
+            <button>Download your bundle as a PDF</button>
+            <br></br>
+            <br></br>
           </>
         )}
-        <PageComponent />
+      </center>
+      <PageComponent />
+      <center>
         {page + 1 < NUM_PAGES ? (
           <button onClick={() => previousPage()} disabled={page - 1 < 0}>
             Previous
