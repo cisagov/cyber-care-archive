@@ -20,9 +20,9 @@ const Hero = () => (
         <p>
           Get started with CISA services by addressing the cybersecurity needs
           that are right for you. Fill out a checklist to assess your
-          organization's compliance with the Cybersecurity Performance Goals,
-          and then download a starter bundle of services you can start using
-          today to secure your organization.
+          organization's cybersecurity maturity, and then get access to a
+          starter bundle of services you can start using today to secure your
+          organization.
         </p>
         <a
           className="usa-button"

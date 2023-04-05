@@ -277,7 +277,7 @@ for (const i in uiSchema) {
 }
 
 const Tagline = () => {
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(0);
   const nextPage = () => {
     page <= NUM_PAGES && setPage((p) => p + 1);
     document
