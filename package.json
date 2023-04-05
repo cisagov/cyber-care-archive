@@ -15,8 +15,7 @@
     "lint": "prettier --check \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "codegen": "swagger-jsdoc -d ./src/swaggerDef.js -o ./src/generated/swagger.json",
-    "postinstall": "npx npm-force-resolutions && npm run codegen"
+    "postinstall": "npx npm-force-resolutions"
   },
   "dependencies": {
     "btoa": "^1.2.1"
