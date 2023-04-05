@@ -51,3 +51,32 @@ $theme-hero-image: '#{$theme-image-path}/hero.png';
     display: block;
   }
 }
+
+form {
+  // @extend .usa-form;
+  // max-width: 30rem;
+  label {
+    @extend .usa-label;
+  }
+  input[type=text],input[type=number],input[type=email] {
+    @extend .usa-input;
+  }
+  fieldset {
+    @extend .usa-fieldset;
+  }
+  input[type=button], input[type=submit], button {
+    @extend .usa-button;
+  }
+  select {
+    @extend .usa-select;
+  }
+  .checkbox {
+    @extend .usa-checkbox;
+  }
+  input[type=checkbox] {
+    @extend .usa-checkbox__input;
+  }
+  input[type=checkbox] + span {
+    @extend .usa-checkbox__label;
+  }
+}
