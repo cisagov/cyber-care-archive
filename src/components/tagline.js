@@ -18,8 +18,9 @@ const Tagline = () => {
   const previousPage = () => {
     page >= 0 && setPage(p => p - 1);
   }
+  let PageComponent = () => null;
   if (page === 0) {
-    return (<section className="grid-container usa-section usa-prose" id="survey-start">
+    PageComponent = () => (<section className="grid-container usa-section usa-prose" id="survey-start">
       <center>
         <StepIndicator counters="default" headingLevel="h4">
           {stages.map((label, i) => (
@@ -62,13 +63,16 @@ const Tagline = () => {
               // "ui:widget": "checkboxes"
             }
           }}
-        >
-          <button onClick={() => previousPage()}>Previous</button>
-          <button onClick={() => nextPage()}>Next</button>
-        </Form>
+        >&nbsp;</Form>
       </center>
     </section>);
   }
+
+  return (<>
+    <PageComponent />
+    <button onClick={() => previousPage()}>Previous</button>
+    <button onClick={() => nextPage()}>Next</button>
+    </>);
 }
 
 export default Tagline;
