@@ -10,7 +10,7 @@ let stages = ['Your Organization', 'Maturity Assessment', 'Get Your CyberCare'];
 
 const NUM_PAGES = stages.length;
 
-const schema = {
+let schema = {
   type: "object",
   definitions: {
     "cpg": {
@@ -37,7 +37,7 @@ const schema = {
           "$ref": "#/definitions/cpg",
         },
         "b": {
-          title: "Asset Inventory",
+          title: "Is a named role/position/title is identified as responsible and accountable for planning, resourcing, and execution of cybersecurity activities?",
           "$ref": "#/definitions/cpg",
         },
         "c": {
@@ -177,7 +177,6 @@ const schema = {
       type: "object",
       properties: {
         "a": {
-          type: "string",
           title: "Asset Inventory",
           "$ref": "#/definitions/cpg",
         }
@@ -188,17 +187,14 @@ const schema = {
       type: "object",
       properties: {
         "a": {
-          type: "string",
           title: "Asset Inventory",
           "$ref": "#/definitions/cpg",
         },
         "b": {
-          type: "string",
           title: "Asset Inventory",
           "$ref": "#/definitions/cpg",
         },
         "c": {
-          type: "string",
           title: "Asset Inventory",
           "$ref": "#/definitions/cpg",
         }
@@ -209,7 +205,6 @@ const schema = {
       type: "object",
       properties: {
         "a": {
-          type: "string",
           title: "Asset Inventory",
           "$ref": "#/definitions/cpg",
         }
@@ -237,8 +232,12 @@ let uiSchema = {
 };
 
 for (const i in uiSchema) {
+  let j = 0;
   for (const key of Object.keys(schema.properties[i].properties)) {
+    j++;
+    const titles = ["Do you maintain a regularly updated inventory of all organizational assets with an IP address, and update this on a recurring basis?", "Is a named role/position/title is identified as responsible and accountable for planning, resourcing, and execution of cybersecurity activities?", "Do you keep track of known exploited vulnerabilities (listed in CISA’s KEV Catalog) and ensure they are patched or mitigated in a timely fashion?", "Do you currently have a Vulnerability Disclosure Policy and/or run a bug bounty program?", "Do you regularly run third party tests such as penetration tests, incident simulations, tabletop exercises, etc.?", "Do you have a security.txt file on all public facing domains?","Do you know where you can report incidents to CISA securely?","Do you collect and store logs for use for both detection and incident response activities?","Do you back up all systems necessary for operations at a regular cadence, no less than once per year?","Do you have training for OT cybersecurity?","Do you use phishing-resistant MFA for critical systems?"];
     uiSchema[i][key] = {
+      "ui:title": titles[j % titles.length],
       status: {
         "ui:title": " ",
         "ui:placeholder": "Select a status",

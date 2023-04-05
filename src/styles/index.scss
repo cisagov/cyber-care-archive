@@ -97,8 +97,10 @@ $five: rgb(94, 128, 68);
           display: block;
           width: 100%;
           color: white;
-          font-size: 1.2rem;
+          font-size: 1rem;
           margin-top: 10px;
+          padding: 4px;
+          // @extend .usa-accordion;
         }
         label {
           margin-top: 0;
@@ -109,6 +111,14 @@ $five: rgb(94, 128, 68);
           .radio-inline {
             flex: 1;
             padding-right: 10px; 
+            // @extend .usa-radio;
+            input {
+              // @extend .usa-radio__input;
+            }
+            span {
+              margin-left: 5px;
+              // @extend .usa-radio__label;
+            }
           }
         }
         .field-notes input {
@@ -126,6 +136,5 @@ $five: rgb(94, 128, 68);
         }
       }
     }
-
   }
 }
