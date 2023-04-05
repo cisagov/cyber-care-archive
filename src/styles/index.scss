@@ -1,3 +1,5 @@
+@use 'sass:list';
+
 /*
   Hide compile warnings and notifications, make want to set to true in dev
 */
@@ -52,6 +54,13 @@ $theme-hero-image: '#{$theme-image-path}/hero.png';
   }
 }
 
+$one: rgb(32, 55, 101);
+$two: rgb(94, 58, 102);
+$three: rgb(153, 103, 52);
+$four: rgb(149, 43, 61);
+$five: rgb(94, 128, 68);
+
+
 #survey-start {
   // @extend .usa-form;
   // max-width: 30rem;
@@ -78,5 +87,20 @@ $theme-hero-image: '#{$theme-image-path}/hero.png';
   }
   input[type=checkbox] + span {
     @extend .usa-checkbox__label;
+  }
+  .cpg-form {
+    @for $i from 1 through 5 {
+      $color: list.nth([$one, $two, $three, $four, $five], $i);
+      .cpg.cpg-#{$i} {
+        legend {
+          background: $color;
+          display: block;
+          width: 100%;
+          font-family: "Source Sans Pro Web", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+          font-size: 16px;
+        }
+      }
+    }
+
   }
 }
