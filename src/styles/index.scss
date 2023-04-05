@@ -60,6 +60,14 @@ $three: rgb(153, 103, 52);
 $four: rgb(149, 43, 61);
 $five: rgb(94, 128, 68);
 
+.usa-step-indicator__header {
+  display:none;
+}
+
+.usa-step-indicator__segments {
+  justify-content: center;
+  margin-left:150px;
+}
 
 #survey-start {
   // @extend .usa-form;
