@@ -18,7 +18,7 @@ const schema = {
       properties: {
         status: {
           type: "string",
-          enum: ["Implemented", "In Progress", "Scoped", "Not Started"]
+          enum: ["Implemented", "In Progress", "Scoped", "Not Started", "N/A"]
         },
         notes: {
           type: "string"
@@ -237,12 +237,12 @@ let uiSchema = {
 };
 
 for (const i in uiSchema) {
-  console.log(i);
   for (const key of Object.keys(schema.properties[i].properties)) {
     uiSchema[i][key] = {
       status: {
         "ui:title": " ",
-        "ui:placeholder": "Select a status"
+        "ui:placeholder": "Select a status",
+        "ui:widget": "radio"
       },
       notes: {
         "ui:title": " ",
