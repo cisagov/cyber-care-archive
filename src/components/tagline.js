@@ -280,9 +280,11 @@ const Tagline = () => {
   const [page, setPage] = useState(2);
   const nextPage = () => {
     page <= NUM_PAGES && setPage((p) => p + 1);
+    document.getElementById('survey-start').scrollIntoView();
   };
   const previousPage = () => {
     page >= 0 && setPage((p) => p - 1);
+    document.getElementById('survey-start').scrollIntoView();
   };
   const submitRegistration = () => {};
   let PageComponent = () => null;
