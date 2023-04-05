@@ -98,8 +98,9 @@ $five: rgb(94, 128, 68);
           width: 100%;
           color: white;
           font-size: 1rem;
-          margin-top: 10px;
-          padding: 4px;
+          padding: 8px;
+          font-weight: bold;
+          margin-bottom: 5px;
           // @extend .usa-accordion;
         }
         label {
@@ -126,6 +127,7 @@ $five: rgb(94, 128, 68);
         }
         .field-object fieldset {
           display: flex;
+          margin-top: 20px;
           > div.field-status {
             flex: 3;
           }
