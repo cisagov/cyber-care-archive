@@ -15,7 +15,7 @@ const Hero = () => (
       <div className="usa-hero__callout">
         <h2 className="usa-hero__heading">
           {/* <span className="usa-hero__heading--alt">Understand your infrastructure.</span> */}
-          CyberCare
+          ReadySetCyber
         </h2>
         <p>
           Get started with CISA services by addressing the cybersecurity needs

@@ -12,7 +12,7 @@ import { Form } from './Form';
   This tagline will appear in your homepage
 */
 
-let stages = ['Your Organization', 'Maturity Assessment', 'Get Your CyberCare'];
+let stages = ['Your Organization', 'Maturity Assessment', 'Get Your Package'];
 
 const NUM_PAGES = stages.length;
 
@@ -411,12 +411,12 @@ const Tagline = () => {
         {page < 2 ? (
           <>
             <h2 className="font-heading-xl margin-top-0 tablet:margin-bottom-0">
-              Get Started with CyberCare
+              Get Started with ReadySetCyber
             </h2>
             <p>
               {page == 0
-                ? "To start out with CyberCare, we'll need some basic information about your organization."
-                : 'Next, answer the following questions about your organization to receive your CyberCare bundle.'}
+                ? "To start out with ReadySetCyber, we'll need some basic information about your organization."
+                : 'Next, answer the following questions about your organization to receive your ReadySetCyber bundle.'}
             </p>
           </>
         ) : (
@@ -425,9 +425,9 @@ const Tagline = () => {
               You're all set!
             </h2>
             <p>
-              You're enrolled in CyberCare. Check out your custom CyberCare
+              You're enrolled in ReadySetCyber. Check out your custom ReadySetCyber
               package below. You will receive an email with this same
-              information, and you can log into CyberCare in the future to learn
+              information, and you can log into ReadySetCyber in the future to learn
               about new services.
             </p>
             <button>Download your bundle as a PDF</button>
