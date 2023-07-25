@@ -10,6 +10,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "federalist": "npm run federalist:build && npm run federalist:copy",
     "federalist:build": "gatsby build --prefix-paths",
     "federalist:copy": "mkdir -p _site && rm -rf _site/* && cp -r public/* _site/"
@@ -48,6 +49,7 @@
   },
   "devDependencies": {
     "eslint-config-react-app": "^7.0.0",
+    "gh-pages": "^5.0.0",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2"
   },
