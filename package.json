@@ -22,7 +22,7 @@
     "@rjsf/core": "^5.5.0",
     "@rjsf/utils": "^5.5.0",
     "@rjsf/validator-ajv8": "^5.5.0",
-    "@trussworks/react-uswds": "^4.1.1",
+    "@trussworks/react-uswds": "^6.1.0",
     "classnames": "^2.2.6",
     "eslint": "^8.37.0",
     "eslint-config-react-app": "^5.2.1",
